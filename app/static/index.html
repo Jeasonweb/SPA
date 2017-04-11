@@ -2,19 +2,50 @@
 <html ng-app="myApp">
 	<head>
 		<meta charset="utf-8" />
-		<title>SPA单页面应用</title>
+		<title>==SPA==</title>
 		<link rel="stylesheet" type="text/css" href="css/JZMain.css"/>
 		
 	</head>
-	<body>		
-		<div ng-controller="parentCtr">
+	<body>
+		<div ng-controller="myCtrl">
+			名 : <input type="text" ng-model="firstName"><br>
+			姓 : <input type="text" ng-model="familyName"><br>
+			姓名 : {{firstName + "  " + familyName}}
 			
-			<p>{{firstname + ' '  +familyName}}</p>
+		</div>
+		<div ng-controller="includeCtr">			
+			<p>欢迎信息:</p>
+			<h1>{{myWelcome}}</h1>		
+		</div>
+		<div ng-controller="falshCtr">			
+			<p>闪动的欢迎语:</p>
+			<h1>{{myHeader}}</h1>		
+		</div>
+		<div ng-controller="switchCtr">			
+			<p>function对象:</p>
+			<h1>My lover is {{myLover}}</h1>		
+		</div>
+		<div ng-controller="myNoteCtrl">
+
+			<h2>我的笔记</h2>			
+			<p>
+				<textarea ng-model="message" cols="20" rows="5" placeholder="请输入100内笔记" maxlength="100">
+					
+				</textarea>
+			</p>
 			
-		</div>		
+			<p>
+				<button ng-click="save()">保存</button>
+				<button ng-click="clear()">清除</button>
+			</p>
+			
+			<p>剩余字数为: <span ng-bind="left()"></span></p>
+		
+		</div>
+			
 	</body>
 </html>
 
-<script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+<script src="lib/angular.js" type="text/javascript" charset="utf-8"></script>
 <script src="js/JZMain.js" type="text/javascript" charset="utf-8"></script>
 
